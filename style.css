@@ -234,3 +234,106 @@
         height: 165px;
     }
 }
+/* FINAL MODAL FIX — KEEP AT THE BOTTOM OF STYLE.CSS */
+
+.modal {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9000 !important;
+
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    padding: 16px !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.modal[hidden] {
+    display: none !important;
+}
+
+.modal-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+}
+
+.modal-card {
+    position: relative !important;
+    z-index: 2 !important;
+
+    width: min(420px, calc(100vw - 32px)) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    margin: auto 0 !important;
+    padding: 22px !important;
+
+    overflow: visible !important;
+
+    border-radius: 22px !important;
+}
+
+.reward-character {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    height: 180px !important;
+    min-height: 0 !important;
+
+    margin: 8px 0 !important;
+    overflow: hidden !important;
+}
+
+.reward-character img {
+    display: block !important;
+
+    width: auto !important;
+    height: auto !important;
+    max-width: 180px !important;
+    max-height: 180px !important;
+
+    object-fit: contain !important;
+}
+
+.real-reward {
+    margin: 10px 0 16px !important;
+}
+
+.continue-button {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 4px !important;
+}
+
+@media (max-width: 500px) {
+    .modal {
+        padding: 8px !important;
+    }
+
+    .modal-card {
+        width: calc(100vw - 16px) !important;
+        padding: 17px 14px !important;
+    }
+
+    .reward-character {
+        height: 145px !important;
+    }
+
+    .reward-character img {
+        max-width: 145px !important;
+        max-height: 145px !important;
+    }
+
+    .modal-icon {
+        font-size: 2.3rem !important;
+    }
+
+    .modal-card h2 {
+        font-size: 1.8rem !important;
+    }
+}
