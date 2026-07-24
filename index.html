@@ -10,15 +10,12 @@
 
     <meta
         name="theme-color"
-        content="#0d7a47"
+        content="#176b45"
     >
 
-    <title>Alex's Adventure to Portugal</title>
+    <title>Your Adventure to Portugal</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -33,27 +30,28 @@
         <header class="hero">
             <span class="hero-sun" aria-hidden="true">☀️</span>
 
-            <div>
-                <p class="eyebrow">THE BIG MOVE</p>
+            <p class="eyebrow">THE BIG MOVE</p>
 
-                <h1>
-                    Alex&rsquo;s Adventure to Portugal
-                    <span aria-hidden="true">🇵🇹</span>
-                </h1>
+            <h1>
+                Your Adventure to Portugal
+                <span aria-hidden="true">🇵🇹</span>
+            </h1>
 
-                <p class="hero-subtitle">
-                    One step at a time. Your new life is waiting.
-                </p>
-            </div>
+            <p class="hero-subtitle">
+                One step at a time. Your new life is waiting.
+            </p>
         </header>
 
         <section
             class="journey-card"
             aria-labelledby="journeyHeading"
         >
+
             <div class="section-heading">
+
                 <div>
-                    <p class="eyebrow">THE JOURNEY</p>
+                    <p class="eyebrow">YOUR JOURNEY</p>
+
                     <h2 id="journeyHeading">
                         Haltwhistle to Portugal
                     </h2>
@@ -65,32 +63,43 @@
                 >
                     0%
                 </div>
+
             </div>
 
-            <div
-                id="journey"
-                class="journey"
-            >
-                <div
-                    id="journeyTrack"
-                    class="journey-track"
-                ></div>
+            <div class="journey-scroll">
 
                 <div
-                    id="alexTraveller"
-                    class="alex-traveller"
-                    aria-label="Alex's position on the journey"
+                    id="journey"
+                    class="journey"
                 >
-                    <img
-                        src="alex.png"
-                        alt="Cartoon Alex"
+
+                    <div
+                        id="journeyTrack"
+                        class="journey-track"
+                    ></div>
+
+                    <div
+                        id="alexTraveller"
+                        class="alex-traveller"
+                        aria-label="Your position on the journey"
                     >
+                        <img
+                            id="alexTravellerImage"
+                            src="alex.png"
+                            alt="Cartoon version of you"
+                        >
+                    </div>
+
                 </div>
+
             </div>
 
             <div class="journey-ends">
+
                 <div class="journey-location">
-                    <span class="location-icon" aria-hidden="true">🏡</span>
+                    <span class="location-icon" aria-hidden="true">
+                        🏡
+                    </span>
 
                     <span>
                         <strong>Start</strong>
@@ -104,19 +113,30 @@
                         Portugal
                     </span>
 
-                    <span class="location-icon" aria-hidden="true">🏖️</span>
+                    <span class="location-icon" aria-hidden="true">
+                        🏖️
+                    </span>
                 </div>
+
             </div>
+
         </section>
 
         <section class="dashboard">
 
-            <div class="checklist-panel">
+            <section
+                class="checklist-panel"
+                aria-labelledby="checklistHeading"
+            >
 
                 <div class="section-heading">
+
                     <div>
-                        <p class="eyebrow">MISSIONS</p>
-                        <h2>Your Portugal checklist</h2>
+                        <p class="eyebrow">YOUR MISSIONS</p>
+
+                        <h2 id="checklistHeading">
+                            Portugal checklist
+                        </h2>
                     </div>
 
                     <button
@@ -124,8 +144,9 @@
                         class="reset-button"
                         type="button"
                     >
-                        Reset
+                        Reset journey
                     </button>
+
                 </div>
 
                 <div
@@ -133,22 +154,30 @@
                     class="task-list"
                 ></div>
 
-            </div>
+            </section>
 
             <aside class="side-panel">
 
                 <section class="progress-card">
-                    <p class="eyebrow">OVERALL PROGRESS</p>
+
+                    <p class="eyebrow">
+                        OVERALL PROGRESS
+                    </p>
 
                     <div class="progress-summary">
-                        <strong id="progressPercentage">0%</strong>
+
+                        <strong id="progressPercentage">
+                            0%
+                        </strong>
 
                         <span id="progressCount">
                             0 of 9 complete
                         </span>
+
                     </div>
 
                     <div
+                        id="progressBar"
                         class="progress-bar"
                         role="progressbar"
                         aria-label="Portugal journey progress"
@@ -168,40 +197,60 @@
                     >
                         Every adventure begins with one small step.
                     </p>
+
                 </section>
 
-                <section class="next-card">
-                    <p class="eyebrow">NEXT DESTINATION</p>
+                <section class="distance-card">
+
+                    <p class="eyebrow">
+                        DISTANCE TO PORTUGAL
+                    </p>
 
                     <div class="distance-row">
-                        <span aria-hidden="true">📍</span>
+
+                        <span class="distance-icon" aria-hidden="true">
+                            📍
+                        </span>
 
                         <div>
                             <strong id="distanceRemaining">
                                 1,650
                             </strong>
 
-                            <span>miles to Portugal</span>
+                            <span>miles to go</span>
                         </div>
 
-                        <span aria-hidden="true">🇵🇹</span>
+                        <span class="distance-icon" aria-hidden="true">
+                            🇵🇹
+                        </span>
+
                     </div>
+
                 </section>
 
-                <section class="reward-preview">
-                    <p class="eyebrow">NEXT REWARD</p>
+                <section class="next-reward-card">
 
-                    <div id="nextRewardContent">
-                        <span class="reward-preview-icon">🏆</span>
+                    <p class="eyebrow">
+                        NEXT REWARD
+                    </p>
 
-                        <div>
-                            <strong>First Step</strong>
+                    <div id="nextRewardContent"></div>
 
-                            <p>
-                                Complete the NIF mission to unlock it.
-                            </p>
-                        </div>
-                    </div>
+                </section>
+
+                <section class="rewards-cabinet">
+
+                    <p class="eyebrow">
+                        REWARDS CABINET
+                    </p>
+
+                    <h2>Your unlocked rewards</h2>
+
+                    <div
+                        id="rewardCabinet"
+                        class="reward-cabinet-list"
+                    ></div>
+
                 </section>
 
             </aside>
@@ -213,42 +262,60 @@
             class="final-destination"
             aria-labelledby="finalHeading"
         >
-            <div class="beach-sun" aria-hidden="true">☀️</div>
 
-            <div class="palm palm-left" aria-hidden="true">🌴</div>
-            <div class="palm palm-right" aria-hidden="true">🌴</div>
+            <span
+                class="beach-sun"
+                aria-hidden="true"
+            >
+                ☀️
+            </span>
 
-            <div class="final-alex">
+            <span
+                class="palm palm-left"
+                aria-hidden="true"
+            >
+                🌴
+            </span>
+
+            <span
+                class="palm palm-right"
+                aria-hidden="true"
+            >
+                🌴
+            </span>
+
+            <div class="final-character">
+
                 <img
-                    src="alex.png"
-                    alt="Cartoon Alex celebrating in Portugal"
+                    src="alex_beach.png"
+                    alt="You relaxing on a beach in Portugal"
                 >
 
-                <span
-                    class="cocktail"
-                    aria-hidden="true"
-                >
-                    🍹
-                </span>
             </div>
 
             <div class="final-copy">
-                <p class="eyebrow">QUEST COMPLETE</p>
+
+                <p class="eyebrow">
+                    QUEST COMPLETE
+                </p>
 
                 <h2 id="finalHeading">
-                    Welcome to Portugal, Alex!
+                    Bem-vindo a Portugal!
                 </h2>
 
                 <p>
-                    The paperwork is finished, the dogs are settled,
-                    the leaving party is complete and the flight has landed.
+                    You completed every mission, settled the dogs,
+                    celebrated with everyone and made it all the way
+                    from Haltwhistle to Portugal.
                 </p>
 
                 <strong>
-                    Time for sunshine and a well-earned cocktail.
-                    🇵🇹
+                    Time for the beach and a well-earned cocktail.
+                    🍹🇵🇹
                 </strong>
+
             </div>
+
         </section>
 
     </main>
@@ -261,15 +328,17 @@
         aria-labelledby="rewardTitle"
         hidden
     >
+
         <div class="modal-backdrop"></div>
 
         <div class="modal-card">
+
             <div
                 id="rewardIcon"
                 class="modal-icon"
                 aria-hidden="true"
             >
-                🎉
+                🎁
             </div>
 
             <p class="eyebrow">
@@ -277,19 +346,43 @@
             </p>
 
             <h2 id="rewardTitle">
-                Great job!
+                Great work!
             </h2>
+
+            <p
+                id="achievementName"
+                class="achievement-name"
+            ></p>
 
             <p id="rewardMessage"></p>
 
-            <div
-                id="rewardAlex"
-                class="reward-alex"
-            >
+            <div class="reward-character">
+
                 <img
+                    id="rewardCharacterImage"
                     src="alex.png"
-                    alt="Cartoon Alex celebrating"
+                    alt="Cartoon version of you celebrating"
                 >
+
+            </div>
+
+            <div class="real-reward">
+
+                <span
+                    id="realRewardIcon"
+                    aria-hidden="true"
+                >
+                    🍪
+                </span>
+
+                <div>
+                    <small>Your reward</small>
+
+                    <strong id="realRewardText">
+                        Have a cookie
+                    </strong>
+                </div>
+
             </div>
 
             <button
@@ -297,9 +390,11 @@
                 class="continue-button"
                 type="button"
             >
-                Continue the journey
+                Claim reward and continue
             </button>
+
         </div>
+
     </div>
 
     <script src="script.js"></script>
