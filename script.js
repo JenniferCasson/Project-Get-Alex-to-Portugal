@@ -3,125 +3,225 @@
 const tasks = [
     {
         id: "nif",
-        title: "Get NIF",
-        description: "Secure your Portuguese tax identification number.",
+        title: "Get your NIF",
+        shortTitle: "NIF",
+        description:
+            "Secure your Portuguese tax identification number.",
         icon: "📄",
-        reward: {
-            icon: "🏅",
-            title: "Portuguese Paperwork Apprentice",
-            message: "The first official step is complete. Alex is now in the Portuguese system!"
-        }
+        image: "alex_nif.png",
+        achievement: "Portuguese Paperwork Apprentice",
+        celebration:
+            "Your first official Portugal mission is complete!",
+        rewardIcon: "🍪",
+        reward: "Have a cookie"
     },
     {
         id: "bank",
-        title: "Open bank account",
-        description: "Set up a Portuguese bank account for the move.",
+        title: "Open your Portuguese bank account",
+        shortTitle: "Bank Account",
+        description:
+            "Set up your Portuguese bank account for the move.",
         icon: "🏦",
-        reward: null
+        image: "alex_bank.png",
+        achievement: "Money Master",
+        celebration:
+            "Your Portuguese finances are officially taking shape.",
+        rewardIcon: "🍺",
+        reward: "Have a well-earned beer"
     },
     {
         id: "police",
-        title: "Obtain police certificate",
-        description: "Get the required police certificate for the visa application.",
+        title: "Obtain your police certificate",
+        shortTitle: "Police Certificate",
+        description:
+            "Get the certificate required for your visa application.",
         icon: "📜",
-        reward: null
+        image: "alex_police_check.png",
+        achievement: "Officially Approved",
+        celebration:
+            "The police certificate is complete. Another document defeated!",
+        rewardIcon: "🐟",
+        reward: "Have fish and chips"
     },
     {
         id: "insurance",
-        title: "Arrange health insurance",
-        description: "Make sure Alex has the required health cover.",
+        title: "Arrange your health insurance",
+        shortTitle: "Health Insurance",
+        description:
+            "Make sure you have the required health cover.",
         icon: "🩺",
-        reward: {
-            icon: "🛡️",
-            title: "Adventure Protected",
-            message: "Health insurance is sorted. Alex is covered for the journey ahead."
-        }
+        image: "alex_health_insurance.png",
+        achievement: "Adventure Protected",
+        celebration:
+            "You are covered and ready for the adventure ahead.",
+        rewardIcon: "🎬",
+        reward: "Watch The Devil Wears Prada"
     },
     {
         id: "accommodation",
-        title: "Secure accommodation",
-        description: "Find and confirm Alex's new home in Portugal.",
-        icon: "🏠",
-        reward: {
-            icon: "🔑",
-            title: "A Portuguese Home",
-            message: "Alex has somewhere to call home when he reaches Portugal."
-        }
+        title: "Secure your accommodation",
+        shortTitle: "Accommodation",
+        description:
+            "Find and confirm your new home in Portugal.",
+        icon: "🔑",
+        image: "alex_keys.png",
+        achievement: "Home Sweet Home",
+        celebration:
+            "You now have somewhere in Portugal to call home.",
+        rewardIcon: "🍕",
+        reward: "Have a cheat day"
     },
     {
         id: "visa",
-        title: "Receive D7 visa",
-        description: "Complete the application and receive the approved D7 visa.",
+        title: "Receive your D7 visa",
+        shortTitle: "D7 Visa",
+        description:
+            "Complete the application and receive your approved visa.",
         icon: "🛂",
-        reward: {
-            icon: "🌟",
-            title: "Visa Warrior",
-            message: "The D7 visa is complete. Portugal is officially becoming real!"
-        }
+        image: "alex_d7.png",
+        achievement: "Portugal Approved",
+        celebration:
+            "The D7 visa is approved. Your new life is becoming real!",
+        rewardIcon: "🍽️",
+        reward: "Choose your favourite dinner"
     },
     {
         id: "dogs",
         title: "Settle the dogs into their new home",
-        description: "Make sure the Springer Spaniels are happy and settled in England.",
+        shortTitle: "Dogs Settled",
+        description:
+            "Make sure the Springer Spaniels are happy and settled in England.",
         icon: "🐶",
-        reward: {
-            icon: "🐾",
-            title: "Springer Spaniel Superhero",
-            message: "The dogs are safe, happy and settled in their new home in England."
-        }
+        image: "alex_dogs.png",
+        achievement: "Springer Spaniel Superhero",
+        celebration:
+            "The dogs are safe, happy and settled in their new home.",
+        rewardIcon: "🚶‍♀️",
+        reward: "Mum walks the dogs"
     },
     {
         id: "party",
-        title: "Have the leaving party",
-        description: "Celebrate the adventure with friends and family before departure.",
+        title: "Have your leaving party",
+        shortTitle: "Leaving Party",
+        description:
+            "Celebrate with your friends and family before you leave.",
         icon: "🥳",
-        reward: {
-            icon: "🎊",
-            title: "One Last British Bash",
-            message: "The leaving party is complete. Memories made, hugs given and adventure pending!"
-        }
+        image: "alex_party.png",
+        achievement: "Farewell Legend",
+        celebration:
+            "The leaving party is complete. Memories made and hugs given!",
+        rewardIcon: "🍸",
+        reward: "Have your favourite party drink"
     },
     {
         id: "flights",
-        title: "Book flights",
-        description: "Book the flight that takes Alex from England to Portugal.",
+        title: "Book your flights",
+        shortTitle: "Flights",
+        description:
+            "Book the flight that takes you from England to Portugal.",
         icon: "✈️",
-        reward: {
-            icon: "🎟️",
-            title: "Portugal Bound",
-            message: "The flight is booked. The countdown to Portugal has officially begun!"
-        }
+        image: "alex_plane.png",
+        achievement: "Portugal Bound",
+        celebration:
+            "The flight is booked. The countdown has officially begun!",
+        rewardIcon: "🍿",
+        reward: "Have a film night with snacks"
     }
 ];
 
+const alexImages = [
+    "alex.png",
+    "alex_nif.png",
+    "alex_bank.png",
+    "alex_police_check.png",
+    "alex_health_insurance.png",
+    "alex_keys.png",
+    "alex_d7.png",
+    "alex_dogs.png",
+    "alex_party.png",
+    "alex_plane.png",
+    "alex_beach.png"
+];
+
+const storageKey = "yourPortugalJourneyV3";
 const totalDistanceMiles = 1650;
-const storageKey = "alexPortugalJourneyV2";
 
-const taskList = document.getElementById("taskList");
-const journeyTrack = document.getElementById("journeyTrack");
-const alexTraveller = document.getElementById("alexTraveller");
+const taskList =
+    document.getElementById("taskList");
 
-const progressFill = document.getElementById("progressFill");
-const progressPercentage = document.getElementById("progressPercentage");
-const journeyPercentage = document.getElementById("journeyPercentage");
-const progressCount = document.getElementById("progressCount");
-const progressMessage = document.getElementById("progressMessage");
-const distanceRemaining = document.getElementById("distanceRemaining");
-const progressBar = document.querySelector(".progress-bar");
+const journeyTrack =
+    document.getElementById("journeyTrack");
 
-const nextRewardContent = document.getElementById("nextRewardContent");
-const finalDestination = document.getElementById("finalDestination");
+const alexTraveller =
+    document.getElementById("alexTraveller");
 
-const rewardModal = document.getElementById("rewardModal");
-const rewardIcon = document.getElementById("rewardIcon");
-const rewardTitle = document.getElementById("rewardTitle");
-const rewardMessage = document.getElementById("rewardMessage");
-const closeRewardButton = document.getElementById("closeRewardButton");
+const alexTravellerImage =
+    document.getElementById("alexTravellerImage");
 
-const resetButton = document.getElementById("resetButton");
-const confettiCanvas = document.getElementById("confettiCanvas");
+const progressFill =
+    document.getElementById("progressFill");
 
-let taskState = loadTaskState();
+const progressPercentage =
+    document.getElementById("progressPercentage");
+
+const journeyPercentage =
+    document.getElementById("journeyPercentage");
+
+const progressCount =
+    document.getElementById("progressCount");
+
+const progressMessage =
+    document.getElementById("progressMessage");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const distanceRemaining =
+    document.getElementById("distanceRemaining");
+
+const nextRewardContent =
+    document.getElementById("nextRewardContent");
+
+const rewardCabinet =
+    document.getElementById("rewardCabinet");
+
+const finalDestination =
+    document.getElementById("finalDestination");
+
+const resetButton =
+    document.getElementById("resetButton");
+
+const rewardModal =
+    document.getElementById("rewardModal");
+
+const rewardIcon =
+    document.getElementById("rewardIcon");
+
+const rewardTitle =
+    document.getElementById("rewardTitle");
+
+const achievementName =
+    document.getElementById("achievementName");
+
+const rewardMessage =
+    document.getElementById("rewardMessage");
+
+const rewardCharacterImage =
+    document.getElementById("rewardCharacterImage");
+
+const realRewardIcon =
+    document.getElementById("realRewardIcon");
+
+const realRewardText =
+    document.getElementById("realRewardText");
+
+const closeRewardButton =
+    document.getElementById("closeRewardButton");
+
+const confettiCanvas =
+    document.getElementById("confettiCanvas");
+
+let taskState = loadProgress();
 let previousCompletedCount = getCompletedCount();
 
 function createDefaultState() {
@@ -130,50 +230,81 @@ function createDefaultState() {
     );
 }
 
-function loadTaskState() {
+function loadProgress() {
     try {
-        const storedState = JSON.parse(
-            localStorage.getItem(storageKey)
-        );
+        const stored = localStorage.getItem(storageKey);
+
+        if (!stored) {
+            return createDefaultState();
+        }
 
         return {
             ...createDefaultState(),
-            ...(storedState || {})
+            ...JSON.parse(stored)
         };
     } catch (error) {
-        console.warn("Saved progress could not be loaded.", error);
+        console.warn(
+            "Saved progress could not be loaded.",
+            error
+        );
+
         return createDefaultState();
     }
 }
 
-function saveTaskState() {
-    localStorage.setItem(
-        storageKey,
-        JSON.stringify(taskState)
-    );
+function saveProgress() {
+    try {
+        localStorage.setItem(
+            storageKey,
+            JSON.stringify(taskState)
+        );
+    } catch (error) {
+        console.warn(
+            "Progress could not be saved.",
+            error
+        );
+    }
 }
 
 function getCompletedCount() {
-    return tasks.filter(task => taskState[task.id]).length;
+    return tasks.filter(
+        task => taskState[task.id]
+    ).length;
+}
+
+function renderApp() {
+    renderTasks();
+    renderJourney();
+    updateProgress();
+    updateCharacter();
+    updateNextReward();
+    renderRewardCabinet();
 }
 
 function renderTasks() {
     taskList.innerHTML = "";
 
     tasks.forEach((task, index) => {
-        const label = document.createElement("label");
+        const taskLabel =
+            document.createElement("label");
 
-        label.className = "task";
-        label.dataset.taskId = task.id;
+        taskLabel.className = "task";
 
         if (taskState[task.id]) {
-            label.classList.add("task--complete");
+            taskLabel.classList.add(
+                "task--complete"
+            );
         }
 
-        label.innerHTML = `
-            <span class="task-number">${index + 1}</span>
+        taskLabel.innerHTML = `
+            <span class="task-number">
+                ${index + 1}
+            </span>
 
-            <span class="task-icon" aria-hidden="true">
+            <span
+                class="task-icon"
+                aria-hidden="true"
+            >
                 ${task.icon}
             </span>
 
@@ -182,105 +313,132 @@ function renderTasks() {
                 <small>${task.description}</small>
             </span>
 
-            ${
-                task.reward
-                    ? `
-                        <span class="task-reward">
-                            Reward
-                        </span>
-                    `
-                    : ""
-            }
+            <span class="task-reward-preview">
+                ${task.rewardIcon}
+                ${task.reward}
+            </span>
 
             <input
                 type="checkbox"
                 data-task-id="${task.id}"
-                ${taskState[task.id] ? "checked" : ""}
                 aria-label="${task.title}"
+                ${taskState[task.id] ? "checked" : ""}
             >
 
-            <span class="custom-checkbox" aria-hidden="true">
+            <span
+                class="custom-checkbox"
+                aria-hidden="true"
+            >
                 ✓
             </span>
         `;
 
-        taskList.appendChild(label);
+        taskList.appendChild(taskLabel);
     });
 
-    const checkboxes = taskList.querySelectorAll(
-        'input[type="checkbox"]'
+    taskList
+        .querySelectorAll('input[type="checkbox"]')
+        .forEach(checkbox => {
+            checkbox.addEventListener(
+                "change",
+                handleTaskChange
+            );
+        });
+}
+
+function handleTaskChange(event) {
+    const checkbox = event.currentTarget;
+    const taskId = checkbox.dataset.taskId;
+
+    const task = tasks.find(
+        item => item.id === taskId
     );
 
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener(
-            "change",
-            handleTaskChange
-        );
-    });
+    const wasComplete = taskState[taskId];
+
+    taskState[taskId] = checkbox.checked;
+
+    saveProgress();
+
+    if (checkbox.checked && !wasComplete) {
+        celebrateTask(task, checkbox);
+    } else {
+        previousCompletedCount =
+            getCompletedCount();
+    }
+
+    renderApp();
 }
 
 function renderJourney() {
     journeyTrack.innerHTML = "";
 
-    const startNode = createJourneyNode({
-        label: "Haltwhistle",
-        icon: "🏡",
-        complete: true,
-        type: "start"
-    });
-
-    journeyTrack.appendChild(startNode);
+    journeyTrack.appendChild(
+        createJourneyNode({
+            label: "Haltwhistle",
+            icon: "🏡",
+            complete: true,
+            type: "start"
+        })
+    );
 
     tasks.forEach(task => {
-        const node = createJourneyNode({
-            label: task.title,
-            icon: task.icon,
-            complete: taskState[task.id],
-            type: "task",
-            taskId: task.id
-        });
-
-        journeyTrack.appendChild(node);
+        journeyTrack.appendChild(
+            createJourneyNode({
+                label: task.shortTitle,
+                icon: task.icon,
+                complete: taskState[task.id],
+                type: "task"
+            })
+        );
     });
 
-    const portugalNode = createJourneyNode({
-        label: "Portugal",
-        icon: "🏖️",
-        complete: getCompletedCount() === tasks.length,
-        type: "finish"
-    });
-
-    journeyTrack.appendChild(portugalNode);
+    journeyTrack.appendChild(
+        createJourneyNode({
+            label: "Portugal",
+            icon: "🏖️",
+            complete:
+                getCompletedCount() === tasks.length,
+            type: "finish"
+        })
+    );
 }
 
 function createJourneyNode({
     label,
     icon,
     complete,
-    type,
-    taskId = ""
+    type
 }) {
-    const node = document.createElement("div");
+    const node =
+        document.createElement("div");
 
-    node.className = `journey-node journey-node--${type}`;
+    node.className =
+        `journey-node journey-node--${type}`;
 
     if (complete) {
-        node.classList.add("journey-node--complete");
-    }
-
-    if (taskId) {
-        node.dataset.taskId = taskId;
+        node.classList.add(
+            "journey-node--complete"
+        );
     }
 
     node.innerHTML = `
         <span class="journey-dot">
-            <span class="journey-node-icon" aria-hidden="true">
+
+            <span
+                class="journey-node-icon"
+                aria-hidden="true"
+            >
                 ${icon}
             </span>
 
-            <span class="journey-check" aria-hidden="true">
+            <span
+                class="journey-check"
+                aria-hidden="true"
+            >
                 ✓
             </span>
+
         </span>
 
         <span class="journey-label">
@@ -291,93 +449,43 @@ function createJourneyNode({
     return node;
 }
 
-function handleTaskChange(event) {
-    const checkbox = event.currentTarget;
-    const taskId = checkbox.dataset.taskId;
-    const wasComplete = taskState[taskId];
-
-    taskState[taskId] = checkbox.checked;
-    saveTaskState();
-
-    const task = tasks.find(item => item.id === taskId);
-
-    if (checkbox.checked && !wasComplete) {
-        celebrateTask(task, checkbox);
-    }
-
-    renderApp();
-}
-
-function celebrateTask(task, checkbox) {
-    const rectangle = checkbox.getBoundingClientRect();
-
-    launchConfetti(
-        rectangle.left + rectangle.width / 2,
-        rectangle.top + rectangle.height / 2
-    );
-
-    document.body.classList.add("celebrating");
-
-    window.setTimeout(() => {
-        document.body.classList.remove("celebrating");
-    }, 650);
-
-    if (task.reward) {
-        window.setTimeout(() => {
-            showReward(task.reward);
-        }, 500);
-    }
-
-    const newCompletedCount = getCompletedCount();
-
-    if (
-        newCompletedCount === tasks.length &&
-        previousCompletedCount !== tasks.length
-    ) {
-        window.setTimeout(() => {
-            showFinalCelebration();
-        }, task.reward ? 1700 : 700);
-    }
-
-    previousCompletedCount = newCompletedCount;
-}
-
-function renderApp() {
-    renderTasks();
-    renderJourney();
-    updateProgress();
-    updateAlexPosition();
-    updateNextReward();
-}
-
 function updateProgress() {
-    const completed = getCompletedCount();
-    const percentage = Math.round(
-        (completed / tasks.length) * 100
-    );
+    const completed =
+        getCompletedCount();
 
-    const remainingMiles = Math.max(
-        0,
+    const percentage =
         Math.round(
-            totalDistanceMiles * (1 - percentage / 100)
-        )
-    );
+            (completed / tasks.length) * 100
+        );
 
-    progressFill.style.width = `${percentage}%`;
+    const remaining =
+        Math.max(
+            0,
+            Math.round(
+                totalDistanceMiles *
+                (1 - completed / tasks.length)
+            )
+        );
 
-    progressPercentage.textContent = `${percentage}%`;
-    journeyPercentage.textContent = `${percentage}%`;
+    progressFill.style.width =
+        `${percentage}%`;
+
+    progressPercentage.textContent =
+        `${percentage}%`;
+
+    journeyPercentage.textContent =
+        `${percentage}%`;
 
     progressCount.textContent =
         `${completed} of ${tasks.length} complete`;
+
+    distanceRemaining.textContent =
+        remaining.toLocaleString("en-GB");
 
     progressBar.setAttribute(
         "aria-valuenow",
         String(percentage)
     );
-
-    distanceRemaining.textContent =
-        remainingMiles.toLocaleString("en-GB");
 
     progressMessage.textContent =
         getProgressMessage(completed);
@@ -394,38 +502,56 @@ function getProgressMessage(completed) {
     }
 
     if (completed <= 2) {
-        return "Great start. Alex has officially left the starting line!";
+        return "Great start! You have officially left the starting line.";
     }
 
     if (completed <= 4) {
-        return "The paperwork mountain is getting smaller.";
+        return "The paperwork mountain is already getting smaller.";
     }
 
     if (completed <= 6) {
-        return "More than halfway there. Portugal is getting closer!";
+        return "You are over halfway there. Portugal is getting closer!";
     }
 
     if (completed <= 8) {
-        return "Nearly there. It is almost time to pack the sunglasses.";
+        return "Nearly there. It is almost time to pack your sunglasses.";
     }
 
     return "Quest complete. Bem-vindo a Portugal!";
 }
 
-function updateAlexPosition() {
-    const completed = getCompletedCount();
-    const totalPositions = tasks.length + 1;
+function updateCharacter() {
+    const completed =
+        getCompletedCount();
 
-    const percentagePosition =
-        (completed / totalPositions) * 100;
+    const imageIndex =
+        completed === tasks.length
+            ? alexImages.length - 1
+            : completed;
+
+    alexTravellerImage.src =
+        alexImages[imageIndex];
+
+    rewardCharacterImage.src =
+        alexImages[imageIndex];
+
+    const numberOfSections =
+        tasks.length + 1;
+
+    const position =
+        (completed / numberOfSections) * 100;
 
     alexTraveller.style.left =
-        `calc(${percentagePosition}% - 36px)`;
+        `calc(${position}% - 48px)`;
 
-    alexTraveller.classList.remove("alex-traveller--hop");
+    alexTraveller.classList.remove(
+        "alex-traveller--hop"
+    );
 
     requestAnimationFrame(() => {
-        alexTraveller.classList.add("alex-traveller--hop");
+        alexTraveller.classList.add(
+            "alex-traveller--hop"
+        );
     });
 
     alexTraveller.classList.toggle(
@@ -435,19 +561,22 @@ function updateAlexPosition() {
 }
 
 function updateNextReward() {
-    const nextRewardTask = tasks.find(
-        task => !taskState[task.id] && task.reward
+    const nextTask = tasks.find(
+        task => !taskState[task.id]
     );
 
-    if (!nextRewardTask) {
+    if (!nextTask) {
         nextRewardContent.innerHTML = `
-            <span class="reward-preview-icon">🏖️</span>
+            <span class="next-reward-icon">
+                🏖️
+            </span>
 
             <div>
                 <strong>Beach Mode</strong>
 
                 <p>
-                    Complete every mission to unlock Portugal.
+                    Every mission is complete.
+                    Your final reward is Portugal!
                 </p>
             </div>
         `;
@@ -456,42 +585,147 @@ function updateNextReward() {
     }
 
     nextRewardContent.innerHTML = `
-        <span class="reward-preview-icon">
-            ${nextRewardTask.reward.icon}
+        <span class="next-reward-icon">
+            ${nextTask.rewardIcon}
         </span>
 
         <div>
-            <strong>${nextRewardTask.reward.title}</strong>
+            <strong>${nextTask.reward}</strong>
 
             <p>
-                Complete “${nextRewardTask.title}” to unlock it.
+                Complete “${nextTask.title}”
+                to unlock this reward.
             </p>
         </div>
     `;
 }
 
-function showReward(reward) {
-    rewardIcon.textContent = reward.icon;
-    rewardTitle.textContent = reward.title;
-    rewardMessage.textContent = reward.message;
+function renderRewardCabinet() {
+    const completedTasks = tasks.filter(
+        task => taskState[task.id]
+    );
+
+    if (completedTasks.length === 0) {
+        rewardCabinet.innerHTML = `
+            <p class="empty-cabinet">
+                Your rewards will appear here
+                as you complete missions.
+            </p>
+        `;
+
+        return;
+    }
+
+    rewardCabinet.innerHTML =
+        completedTasks
+            .map(task => `
+                <div class="cabinet-reward">
+
+                    <span aria-hidden="true">
+                        ${task.rewardIcon}
+                    </span>
+
+                    <div>
+                        <strong>${task.reward}</strong>
+                        <small>${task.achievement}</small>
+                    </div>
+
+                    <span
+                        class="cabinet-tick"
+                        aria-hidden="true"
+                    >
+                        ✓
+                    </span>
+
+                </div>
+            `)
+            .join("");
+}
+
+function celebrateTask(task, checkbox) {
+    const rectangle =
+        checkbox.getBoundingClientRect();
+
+    launchConfetti(
+        rectangle.left +
+        rectangle.width / 2,
+        rectangle.top +
+        rectangle.height / 2,
+        110
+    );
+
+    document.body.classList.add(
+        "celebrating"
+    );
+
+    window.setTimeout(() => {
+        document.body.classList.remove(
+            "celebrating"
+        );
+    }, 750);
+
+    window.setTimeout(() => {
+        showReward(task);
+    }, 500);
+
+    const completed =
+        getCompletedCount();
+
+    if (
+        completed === tasks.length &&
+        previousCompletedCount !== tasks.length
+    ) {
+        window.setTimeout(() => {
+            showFinalCelebration();
+        }, 1900);
+    }
+
+    previousCompletedCount = completed;
+}
+
+function showReward(task) {
+    rewardIcon.textContent =
+        task.rewardIcon;
+
+    rewardTitle.textContent =
+        "Mission complete!";
+
+    achievementName.textContent =
+        task.achievement;
+
+    rewardMessage.textContent =
+        task.celebration;
+
+    realRewardIcon.textContent =
+        task.rewardIcon;
+
+    realRewardText.textContent =
+        task.reward;
+
+    rewardCharacterImage.src =
+        task.image;
 
     rewardModal.hidden = false;
 
     requestAnimationFrame(() => {
-        rewardModal.classList.add("modal--visible");
+        rewardModal.classList.add(
+            "modal--visible"
+        );
     });
 
     launchConfetti(
         window.innerWidth / 2,
         window.innerHeight / 3,
-        130
+        150
     );
 
     closeRewardButton.focus();
 }
 
 function closeReward() {
-    rewardModal.classList.remove("modal--visible");
+    rewardModal.classList.remove(
+        "modal--visible"
+    );
 
     window.setTimeout(() => {
         rewardModal.hidden = true;
@@ -502,42 +736,36 @@ function showFinalCelebration() {
     launchConfetti(
         window.innerWidth / 2,
         window.innerHeight / 2,
-        250
+        300
     );
-
-    finalDestination.scrollIntoView({
-        behaviour: "smooth",
-        block: "center"
-    });
 
     window.setTimeout(() => {
-        showReward({
-            icon: "🇵🇹",
-            title: "Welcome to Portugal!",
-            message:
-                "Alex has completed every mission. It is officially time for the beach and a well-earned cocktail!"
+        finalDestination.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
         });
-    }, 900);
+    }, 450);
 }
 
-function resetProgress() {
-    const shouldReset = window.confirm(
-        "Reset Alex's entire Portugal journey?"
-    );
+function resetJourney() {
+    const confirmed =
+        window.confirm(
+            "Are you sure you want to reset your entire Portugal journey?"
+        );
 
-    if (!shouldReset) {
+    if (!confirmed) {
         return;
     }
 
     taskState = createDefaultState();
     previousCompletedCount = 0;
 
-    saveTaskState();
+    saveProgress();
     renderApp();
 
     window.scrollTo({
         top: 0,
-        behaviour: "smooth"
+        behavior: "smooth"
     });
 }
 
@@ -550,7 +778,9 @@ rewardModal.addEventListener(
     "click",
     event => {
         if (
-            event.target.classList.contains("modal-backdrop")
+            event.target.classList.contains(
+                "modal-backdrop"
+            )
         ) {
             closeReward();
         }
@@ -571,24 +801,26 @@ document.addEventListener(
 
 resetButton.addEventListener(
     "click",
-    resetProgress
+    resetJourney
 );
 
 /* Confetti */
 
-const confettiContext = confettiCanvas.getContext("2d");
+const confettiContext =
+    confettiCanvas.getContext("2d");
 
 let confettiPieces = [];
 let confettiAnimationFrame = null;
 
 function resizeConfettiCanvas() {
-    const pixelRatio = window.devicePixelRatio || 1;
+    const ratio =
+        window.devicePixelRatio || 1;
 
     confettiCanvas.width =
-        window.innerWidth * pixelRatio;
+        window.innerWidth * ratio;
 
     confettiCanvas.height =
-        window.innerHeight * pixelRatio;
+        window.innerHeight * ratio;
 
     confettiCanvas.style.width =
         `${window.innerWidth}px`;
@@ -597,10 +829,10 @@ function resizeConfettiCanvas() {
         `${window.innerHeight}px`;
 
     confettiContext.setTransform(
-        pixelRatio,
+        ratio,
         0,
         0,
-        pixelRatio,
+        ratio,
         0,
         0
     );
@@ -609,7 +841,7 @@ function resizeConfettiCanvas() {
 function launchConfetti(
     originX,
     originY,
-    amount = 90
+    amount = 100
 ) {
     const colours = [
         "#e63946",
@@ -622,36 +854,69 @@ function launchConfetti(
         "#38b000"
     ];
 
-    for (let index = 0; index < amount; index += 1) {
+    for (
+        let index = 0;
+        index < amount;
+        index += 1
+    ) {
         const angle =
-            Math.random() * Math.PI * 2;
+            Math.random() *
+            Math.PI *
+            2;
 
         const speed =
-            3 + Math.random() * 8;
+            3 +
+            Math.random() *
+            8;
 
         confettiPieces.push({
             x: originX,
             y: originY,
-            width: 5 + Math.random() * 7,
-            height: 3 + Math.random() * 6,
+
+            width:
+                5 +
+                Math.random() *
+                7,
+
+            height:
+                3 +
+                Math.random() *
+                6,
+
             colour:
                 colours[
                     Math.floor(
-                        Math.random() * colours.length
+                        Math.random() *
+                        colours.length
                     )
                 ],
+
             velocityX:
-                Math.cos(angle) * speed,
+                Math.cos(angle) *
+                speed,
+
             velocityY:
-                Math.sin(angle) * speed - 4,
+                Math.sin(angle) *
+                speed -
+                4,
+
             gravity:
-                0.11 + Math.random() * 0.08,
+                0.11 +
+                Math.random() *
+                0.08,
+
             rotation:
-                Math.random() * Math.PI,
+                Math.random() *
+                Math.PI,
+
             rotationSpeed:
-                (Math.random() - 0.5) * 0.3,
+                (Math.random() - 0.5) *
+                0.3,
+
             life:
-                95 + Math.random() * 55
+                95 +
+                Math.random() *
+                55
         });
     }
 
@@ -668,16 +933,27 @@ function animateConfetti() {
         window.innerHeight
     );
 
-    confettiPieces = confettiPieces.filter(
-        piece => piece.life > 0
-    );
+    confettiPieces =
+        confettiPieces.filter(
+            piece => piece.life > 0
+        );
 
     confettiPieces.forEach(piece => {
-        piece.x += piece.velocityX;
-        piece.y += piece.velocityY;
-        piece.velocityY += piece.gravity;
-        piece.velocityX *= 0.992;
-        piece.rotation += piece.rotationSpeed;
+        piece.x +=
+            piece.velocityX;
+
+        piece.y +=
+            piece.velocityY;
+
+        piece.velocityY +=
+            piece.gravity;
+
+        piece.velocityX *=
+            0.992;
+
+        piece.rotation +=
+            piece.rotationSpeed;
+
         piece.life -= 1;
 
         confettiContext.save();
@@ -725,7 +1001,7 @@ window.addEventListener(
     "resize",
     () => {
         resizeConfettiCanvas();
-        updateAlexPosition();
+        updateCharacter();
     }
 );
 
