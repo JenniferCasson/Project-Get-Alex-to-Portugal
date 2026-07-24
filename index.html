@@ -2,85 +2,305 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Road to Portugal</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="theme-color"
+        content="#0d7a47"
+    >
+
+    <title>Alex's Adventure to Portugal</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
 
+    <canvas
+        id="confettiCanvas"
+        aria-hidden="true"
+    ></canvas>
+
     <main class="app">
 
-        <header>
-            <h1>Road to Portugal 🇵🇹</h1>
-            <p>Complete each step and move closer to Portugal.</p>
+        <header class="hero">
+            <span class="hero-sun" aria-hidden="true">☀️</span>
+
+            <div>
+                <p class="eyebrow">THE BIG MOVE</p>
+
+                <h1>
+                    Alex&rsquo;s Adventure to Portugal
+                    <span aria-hidden="true">🇵🇹</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    One step at a time. Your new life is waiting.
+                </p>
+            </div>
         </header>
 
-        <section class="journey">
+        <section
+            class="journey-card"
+            aria-labelledby="journeyHeading"
+        >
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">THE JOURNEY</p>
+                    <h2 id="journeyHeading">
+                        Haltwhistle to Portugal
+                    </h2>
+                </div>
 
-            <div class="route">
-                <span>🏠</span>
-                <span>📋</span>
-                <span>💷</span>
-                <span>✈️</span>
-                <span>🇵🇹</span>
+                <div
+                    id="journeyPercentage"
+                    class="percentage-badge"
+                >
+                    0%
+                </div>
             </div>
 
-            <div id="traveller" class="traveller">
-                🧍
+            <div
+                id="journey"
+                class="journey"
+            >
+                <div
+                    id="journeyTrack"
+                    class="journey-track"
+                ></div>
+
+                <div
+                    id="alexTraveller"
+                    class="alex-traveller"
+                    aria-label="Alex's position on the journey"
+                >
+                    <img
+                        src="alex.png"
+                        alt="Cartoon Alex"
+                    >
+                </div>
             </div>
 
-            <p id="progressText">0% complete</p>
+            <div class="journey-ends">
+                <div class="journey-location">
+                    <span class="location-icon" aria-hidden="true">🏡</span>
 
-            <div class="progress-bar">
-                <div id="progressFill"></div>
+                    <span>
+                        <strong>Start</strong>
+                        Haltwhistle
+                    </span>
+                </div>
+
+                <div class="journey-location journey-location--end">
+                    <span>
+                        <strong>Destination</strong>
+                        Portugal
+                    </span>
+
+                    <span class="location-icon" aria-hidden="true">🏖️</span>
+                </div>
             </div>
+        </section>
+
+        <section class="dashboard">
+
+            <div class="checklist-panel">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">MISSIONS</p>
+                        <h2>Your Portugal checklist</h2>
+                    </div>
+
+                    <button
+                        id="resetButton"
+                        class="reset-button"
+                        type="button"
+                    >
+                        Reset
+                    </button>
+                </div>
+
+                <div
+                    id="taskList"
+                    class="task-list"
+                ></div>
+
+            </div>
+
+            <aside class="side-panel">
+
+                <section class="progress-card">
+                    <p class="eyebrow">OVERALL PROGRESS</p>
+
+                    <div class="progress-summary">
+                        <strong id="progressPercentage">0%</strong>
+
+                        <span id="progressCount">
+                            0 of 9 complete
+                        </span>
+                    </div>
+
+                    <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-label="Portugal journey progress"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow="0"
+                    >
+                        <div
+                            id="progressFill"
+                            class="progress-fill"
+                        ></div>
+                    </div>
+
+                    <p
+                        id="progressMessage"
+                        class="progress-message"
+                    >
+                        Every adventure begins with one small step.
+                    </p>
+                </section>
+
+                <section class="next-card">
+                    <p class="eyebrow">NEXT DESTINATION</p>
+
+                    <div class="distance-row">
+                        <span aria-hidden="true">📍</span>
+
+                        <div>
+                            <strong id="distanceRemaining">
+                                1,650
+                            </strong>
+
+                            <span>miles to Portugal</span>
+                        </div>
+
+                        <span aria-hidden="true">🇵🇹</span>
+                    </div>
+                </section>
+
+                <section class="reward-preview">
+                    <p class="eyebrow">NEXT REWARD</p>
+
+                    <div id="nextRewardContent">
+                        <span class="reward-preview-icon">🏆</span>
+
+                        <div>
+                            <strong>First Step</strong>
+
+                            <p>
+                                Complete the NIF mission to unlock it.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            </aside>
 
         </section>
 
-        <section class="tasks">
+        <section
+            id="finalDestination"
+            class="final-destination"
+            aria-labelledby="finalHeading"
+        >
+            <div class="beach-sun" aria-hidden="true">☀️</div>
 
-            <h2>Portugal checklist</h2>
+            <div class="palm palm-left" aria-hidden="true">🌴</div>
+            <div class="palm palm-right" aria-hidden="true">🌴</div>
 
-            <label class="task">
-                <input type="checkbox">
-                Check passport expiry date
-            </label>
+            <div class="final-alex">
+                <img
+                    src="alex.png"
+                    alt="Cartoon Alex celebrating in Portugal"
+                >
 
-            <label class="task">
-                <input type="checkbox">
-                Create a moving budget
-            </label>
+                <span
+                    class="cocktail"
+                    aria-hidden="true"
+                >
+                    🍹
+                </span>
+            </div>
 
-            <label class="task">
-                <input type="checkbox">
-                Research areas to live
-            </label>
+            <div class="final-copy">
+                <p class="eyebrow">QUEST COMPLETE</p>
 
-            <label class="task">
-                <input type="checkbox">
-                Research visa requirements
-            </label>
+                <h2 id="finalHeading">
+                    Welcome to Portugal, Alex!
+                </h2>
 
-            <label class="task">
-                <input type="checkbox">
-                Arrange accommodation
-            </label>
+                <p>
+                    The paperwork is finished, the dogs are settled,
+                    the leaving party is complete and the flight has landed.
+                </p>
 
-            <label class="task">
-                <input type="checkbox">
-                Book flights
-            </label>
-
+                <strong>
+                    Time for sunshine and a well-earned cocktail.
+                    🇵🇹
+                </strong>
+            </div>
         </section>
-
-        <p id="message" class="message">
-            Your Portugal journey starts here!
-        </p>
 
     </main>
+
+    <div
+        id="rewardModal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="rewardTitle"
+        hidden
+    >
+        <div class="modal-backdrop"></div>
+
+        <div class="modal-card">
+            <div
+                id="rewardIcon"
+                class="modal-icon"
+                aria-hidden="true"
+            >
+                🎉
+            </div>
+
+            <p class="eyebrow">
+                REWARD UNLOCKED
+            </p>
+
+            <h2 id="rewardTitle">
+                Great job!
+            </h2>
+
+            <p id="rewardMessage"></p>
+
+            <div
+                id="rewardAlex"
+                class="reward-alex"
+            >
+                <img
+                    src="alex.png"
+                    alt="Cartoon Alex celebrating"
+                >
+            </div>
+
+            <button
+                id="closeRewardButton"
+                class="continue-button"
+                type="button"
+            >
+                Continue the journey
+            </button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 
