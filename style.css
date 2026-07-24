@@ -15,10 +15,12 @@
     --border: #e8ddca;
 
     --shadow:
-        0 18px 55px rgba(64, 45, 18, 0.12);
+        0 18px 55px
+        rgba(64, 45, 18, 0.12);
 
     --small-shadow:
-        0 7px 20px rgba(64, 45, 18, 0.1);
+        0 7px 20px
+        rgba(64, 45, 18, 0.1);
 }
 
 * {
@@ -45,7 +47,7 @@ body {
     background:
         radial-gradient(
             circle at top left,
-            rgba(244, 197, 66, 0.22),
+            rgba(244, 197, 66, 0.25),
             transparent 30%
         ),
         linear-gradient(
@@ -65,6 +67,10 @@ button {
     cursor: pointer;
 }
 
+img {
+    max-width: 100%;
+}
+
 #confettiCanvas {
     position: fixed;
     inset: 0;
@@ -80,12 +86,7 @@ button {
 .hero {
     position: relative;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 22px;
-    padding: 26px;
+    padding: 26px 60px 30px;
 
     text-align: center;
 }
@@ -99,14 +100,14 @@ button {
         sans-serif;
 
     font-size:
-        clamp(2rem, 5vw, 4.4rem);
+        clamp(2.2rem, 5vw, 4.6rem);
 
     line-height: 1;
     color: #12213b;
 }
 
 .hero-subtitle {
-    margin: 13px 0 0;
+    margin: 14px 0 0;
 
     font-size:
         clamp(1rem, 2vw, 1.35rem);
@@ -117,10 +118,10 @@ button {
 
 .hero-sun {
     position: absolute;
-    top: 2px;
-    left: 10px;
+    top: 5px;
+    left: 12px;
 
-    font-size: 3rem;
+    font-size: 3.2rem;
 
     animation:
         spinSun 14s linear infinite;
@@ -138,19 +139,17 @@ button {
 .journey-card,
 .checklist-panel,
 .progress-card,
-.next-card,
-.reward-preview,
+.distance-card,
+.next-reward-card,
+.rewards-cabinet,
 .final-destination {
-    background:
-        rgba(255, 255, 255, 0.94);
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 24px;
 
-    box-shadow:
-        var(--shadow);
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    box-shadow: var(--shadow);
 }
 
 .journey-card {
@@ -186,24 +185,26 @@ button {
 
     border-radius: 999px;
 
-    background:
-        var(--green);
-
+    background: var(--green);
     color: #fff;
+
     font-size: 1.15rem;
     font-weight: 900;
+}
+
+.journey-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
 }
 
 .journey {
     position: relative;
 
-    min-height: 185px;
-    padding-top: 85px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scrollbar-width: thin;
+    min-width: 1120px;
+    min-height: 205px;
+    padding-top: 110px;
 }
 
 .journey-track {
@@ -212,9 +213,8 @@ button {
     display: grid;
 
     grid-template-columns:
-        repeat(11, minmax(95px, 1fr));
+        repeat(11, minmax(96px, 1fr));
 
-    min-width: 1100px;
     padding: 0 20px;
 }
 
@@ -245,7 +245,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
 
     text-align: center;
 }
@@ -262,8 +262,7 @@ button {
     border: 4px solid #d8c4a3;
     border-radius: 50%;
 
-    background:
-        #fffaf1;
+    background: #fffaf1;
 
     box-shadow:
         0 5px 0 #b99d70;
@@ -287,20 +286,16 @@ button {
     border: 3px solid white;
     border-radius: 50%;
 
-    background:
-        var(--green);
-
+    background: var(--green);
     color: white;
+
     font-size: 0.86rem;
     font-weight: 900;
 }
 
 .journey-node--complete .journey-dot {
-    border-color:
-        #4d9d35;
-
-    background:
-        #eefbe9;
+    border-color: #4d9d35;
+    background: #eefbe9;
 
     box-shadow:
         0 5px 0 #2e7727;
@@ -320,7 +315,7 @@ button {
 }
 
 .journey-label {
-    max-width: 95px;
+    max-width: 98px;
 
     font-size: 0.72rem;
     font-weight: 900;
@@ -329,11 +324,12 @@ button {
 
 .alex-traveller {
     position: absolute;
-    top: 3px;
-    left: calc(0% - 36px);
+    top: 0;
+    left: calc(0% - 48px);
     z-index: 10;
 
-    width: 72px;
+    width: 96px;
+    height: 120px;
 
     transition:
         left 0.8s
@@ -344,14 +340,14 @@ button {
     display: block;
 
     width: 100%;
-    height: 90px;
+    height: 120px;
 
     object-fit: contain;
 
     filter:
         drop-shadow(
-            0 7px 5px
-            rgba(0, 0, 0, 0.2)
+            0 8px 5px
+            rgba(0, 0, 0, 0.22)
         );
 }
 
@@ -361,16 +357,13 @@ button {
 }
 
 .alex-traveller--arrived::after {
-    content: "🍹";
+    content: "🇵🇹";
 
     position: absolute;
-    top: 26px;
-    right: -17px;
+    top: 6px;
+    right: -18px;
 
-    font-size: 1.8rem;
-
-    animation:
-        cocktailWiggle 1.2s ease infinite;
+    font-size: 2rem;
 }
 
 .journey-ends {
@@ -407,8 +400,8 @@ button {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.7fr)
-        minmax(280px, 0.7fr);
+        minmax(0, 1.65fr)
+        minmax(300px, 0.75fr);
 
     gap: 22px;
 }
@@ -420,24 +413,18 @@ button {
 .reset-button {
     padding: 9px 14px;
 
-    border:
-        1px solid #e0b8b8;
-
+    border: 1px solid #e0b8b8;
     border-radius: 10px;
 
-    background:
-        #fff3f3;
-
-    color:
-        #a41f1f;
+    background: #fff3f3;
+    color: #a41f1f;
 
     font-size: 0.8rem;
     font-weight: 800;
 }
 
 .reset-button:hover {
-    background:
-        #ffe3e3;
+    background: #ffe3e3;
 }
 
 .task-list {
@@ -451,23 +438,22 @@ button {
     display: grid;
 
     grid-template-columns:
-        38px 47px
+        38px
+        48px
         minmax(0, 1fr)
-        auto 32px;
+        minmax(120px, auto)
+        32px;
 
     align-items: center;
     gap: 11px;
 
-    min-height: 78px;
+    min-height: 84px;
     padding: 11px 13px;
 
-    border:
-        2px solid #e9dfd0;
-
+    border: 2px solid #e9dfd0;
     border-radius: 17px;
 
-    background:
-        #fff;
+    background: #fff;
 
     cursor: pointer;
 
@@ -479,22 +465,16 @@ button {
 }
 
 .task:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
-    border-color:
-        #99c997;
+    border-color: #99c997;
 
-    box-shadow:
-        var(--small-shadow);
+    box-shadow: var(--small-shadow);
 }
 
 .task--complete {
-    border-color:
-        #80bd72;
-
-    background:
-        #eefbea;
+    border-color: #80bd72;
+    background: #eefbea;
 }
 
 .task-number {
@@ -506,11 +486,8 @@ button {
 
     border-radius: 50%;
 
-    background:
-        #eef7e9;
-
-    color:
-        var(--green);
+    background: #eef7e9;
+    color: var(--green);
 
     font-weight: 900;
 }
@@ -530,34 +507,27 @@ button {
 }
 
 .task-copy small {
-    color:
-        var(--muted);
-
+    color: var(--muted);
     line-height: 1.35;
 }
 
 .task--complete .task-copy strong {
-    text-decoration:
-        line-through;
-
-    color:
-        var(--green-dark);
+    text-decoration: line-through;
+    color: var(--green-dark);
 }
 
-.task-reward {
-    padding: 6px 9px;
+.task-reward-preview {
+    padding: 7px 10px;
 
-    border-radius: 999px;
+    border-radius: 12px;
 
-    background:
-        #f0eaff;
+    background: #fff5d8;
+    color: #754e12;
 
-    color:
-        #6841c6;
-
-    font-size: 0.68rem;
-    font-weight: 900;
-    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1.3;
+    text-align: center;
 }
 
 .task input {
@@ -576,16 +546,13 @@ button {
     width: 29px;
     height: 29px;
 
-    border:
-        2px solid #c9c1b6;
-
+    border: 2px solid #c9c1b6;
     border-radius: 8px;
 
     color: transparent;
     font-weight: 900;
 
-    transition:
-        0.15s ease;
+    transition: 0.15s ease;
 }
 
 .task input:focus-visible + .custom-checkbox {
@@ -597,14 +564,9 @@ button {
 }
 
 .task input:checked + .custom-checkbox {
-    border-color:
-        var(--green);
-
-    background:
-        var(--green);
-
-    color:
-        white;
+    border-color: var(--green);
+    background: var(--green);
+    color: white;
 }
 
 .side-panel {
@@ -614,8 +576,9 @@ button {
 }
 
 .progress-card,
-.next-card,
-.reward-preview {
+.distance-card,
+.next-reward-card,
+.rewards-cabinet {
     padding: 22px;
 }
 
@@ -648,8 +611,7 @@ button {
 
     border-radius: 999px;
 
-    background:
-        #e8e5df;
+    background: #e8e5df;
 }
 
 .progress-fill {
@@ -671,11 +633,9 @@ button {
 }
 
 .progress-message {
-    margin:
-        15px 0 0;
+    margin: 15px 0 0;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 0.88rem;
     line-height: 1.5;
@@ -692,7 +652,7 @@ button {
     text-align: center;
 }
 
-.distance-row > span {
+.distance-icon {
     font-size: 2rem;
 }
 
@@ -709,12 +669,22 @@ button {
 .distance-row div span {
     margin-top: 5px;
 
-    color:
-        var(--green);
+    color: var(--green);
 
     font-size: 0.78rem;
     font-weight: 900;
     text-transform: uppercase;
+}
+
+.next-reward-card {
+    background:
+        linear-gradient(
+            145deg,
+            #f8f1ff,
+            #fff
+        );
+
+    border-color: #d8c4ff;
 }
 
 #nextRewardContent {
@@ -725,36 +695,94 @@ button {
     margin-top: 12px;
 }
 
-.reward-preview {
-    background:
-        linear-gradient(
-            145deg,
-            #f8f1ff,
-            #fff
-        );
-
-    border-color:
-        #d8c4ff;
+.next-reward-icon {
+    font-size: 2.8rem;
 }
 
-.reward-preview-icon {
-    font-size: 2.7rem;
+#nextRewardContent strong {
+    color: #5e3caf;
 }
 
-.reward-preview strong {
-    color:
-        #5e3caf;
-}
+#nextRewardContent p {
+    margin: 5px 0 0;
 
-.reward-preview p {
-    margin:
-        5px 0 0;
-
-    color:
-        var(--muted);
+    color: var(--muted);
 
     font-size: 0.82rem;
     line-height: 1.4;
+}
+
+.rewards-cabinet h2 {
+    margin: 0 0 14px;
+
+    font-size: 1.2rem;
+}
+
+.reward-cabinet-list {
+    display: grid;
+    gap: 9px;
+}
+
+.empty-cabinet {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+.cabinet-reward {
+    display: grid;
+
+    grid-template-columns:
+        34px
+        minmax(0, 1fr)
+        25px;
+
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px;
+
+    border: 1px solid #e7decf;
+    border-radius: 12px;
+
+    background: #fffaf0;
+}
+
+.cabinet-reward > span:first-child {
+    font-size: 1.6rem;
+}
+
+.cabinet-reward div {
+    display: grid;
+    gap: 2px;
+}
+
+.cabinet-reward strong {
+    font-size: 0.83rem;
+}
+
+.cabinet-reward small {
+    color: var(--muted);
+    font-size: 0.68rem;
+}
+
+.cabinet-tick {
+    display: grid;
+    place-items: center;
+
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+    color: #fff;
+
+    font-size: 0.72rem;
+    font-weight: 900;
 }
 
 .final-destination {
@@ -763,14 +791,14 @@ button {
     display: none;
 
     grid-template-columns:
-        minmax(180px, 0.65fr)
-        minmax(0, 1.35fr);
+        minmax(210px, 0.7fr)
+        minmax(0, 1.3fr);
 
     align-items: center;
     gap: 20px;
 
     margin-top: 24px;
-    min-height: 330px;
+    min-height: 360px;
     padding: 38px;
 
     overflow: hidden;
@@ -779,8 +807,8 @@ button {
         linear-gradient(
             180deg,
             #8fddff 0%,
-            #d8f5ff 38%,
-            #ffe5a6 39%,
+            #d8f5ff 42%,
+            #ffe5a6 43%,
             #f4ca75 100%
         );
 }
@@ -792,20 +820,45 @@ button {
         destinationReveal 0.75s ease both;
 }
 
+.final-character {
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    min-height: 270px;
+}
+
+.final-character img {
+    width: min(270px, 100%);
+    max-height: 290px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 14px 8px
+            rgba(0, 0, 0, 0.22)
+        );
+
+    animation:
+        beachFloat 2.4s ease-in-out infinite;
+}
+
 .final-copy {
     position: relative;
     z-index: 3;
 }
 
 .final-copy h2 {
-    margin:
-        0 0 12px;
+    margin: 0 0 12px;
 
     font-size:
         clamp(2rem, 5vw, 4rem);
 
-    color:
-        #123823;
+    color: #123823;
 }
 
 .final-copy p {
@@ -816,61 +869,8 @@ button {
 }
 
 .final-copy strong {
-    color:
-        #7a3c16;
-
+    color: #7a3c16;
     font-size: 1.1rem;
-}
-
-.final-alex {
-    position: relative;
-    z-index: 3;
-
-    display: flex;
-    justify-content: center;
-    align-items: end;
-
-    min-height: 245px;
-}
-
-.final-alex::before {
-    content: "🏖️";
-
-    position: absolute;
-    bottom: 1px;
-
-    font-size: 8rem;
-    opacity: 0.8;
-}
-
-.final-alex img {
-    position: relative;
-    z-index: 2;
-
-    width:
-        min(190px, 80%);
-
-    transform:
-        rotate(-8deg);
-
-    filter:
-        drop-shadow(
-            0 12px 7px
-            rgba(0, 0, 0, 0.22)
-        );
-}
-
-.cocktail {
-    position: absolute;
-    z-index: 4;
-
-    right: 13%;
-    top: 30%;
-
-    font-size: 3.2rem;
-
-    animation:
-        cocktailWiggle 1.2s ease infinite;
 }
 
 .palm {
@@ -884,9 +884,7 @@ button {
 
 .palm-left {
     left: -35px;
-
-    transform:
-        rotate(12deg);
+    transform: rotate(12deg);
 }
 
 .palm-right {
@@ -939,25 +937,22 @@ button {
     inset: 0;
 
     background:
-        rgba(15, 28, 21, 0.65);
+        rgba(15, 28, 21, 0.68);
 
-    backdrop-filter:
-        blur(5px);
+    backdrop-filter: blur(5px);
 }
 
 .modal-card {
     position: relative;
     z-index: 2;
 
-    width:
-        min(470px, 100%);
+    width: min(480px, 100%);
+    max-height: 94vh;
+    overflow-y: auto;
 
-    padding:
-        30px 28px 25px;
+    padding: 28px 28px 25px;
 
-    border:
-        3px solid #f4cb57;
-
+    border: 3px solid #f4cb57;
     border-radius: 27px;
 
     background:
@@ -989,7 +984,7 @@ button {
 }
 
 .modal-icon {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 
     font-size: 4rem;
 
@@ -998,42 +993,87 @@ button {
 }
 
 .modal-card h2 {
-    margin:
-        4px 0 10px;
+    margin: 4px 0 5px;
 
     font-size:
-        clamp(1.8rem, 5vw, 2.7rem);
+        clamp(1.8rem, 5vw, 2.6rem);
 
-    color:
-        var(--green-dark);
+    color: var(--green-dark);
+}
+
+.achievement-name {
+    margin: 0 0 10px !important;
+
+    color: #6c42b5 !important;
+
+    font-size: 1.05rem;
+    font-weight: 900;
 }
 
 .modal-card > p:not(.eyebrow) {
-    margin:
-        0 auto;
+    max-width: 390px;
+    margin-right: auto;
+    margin-left: auto;
 
-    max-width:
-        370px;
+    color: var(--muted);
 
-    color:
-        var(--muted);
-
-    line-height: 1.55;
+    line-height: 1.5;
 }
 
-.reward-alex {
-    height: 170px;
-    margin-top: 10px;
+.reward-character {
+    height: 180px;
+    margin-top: 5px;
 }
 
-.reward-alex img {
-    width: 135px;
-    height: 170px;
+.reward-character img {
+    width: 170px;
+    height: 180px;
 
     object-fit: contain;
 
     animation:
         alexCelebrate 0.8s ease infinite alternate;
+}
+
+.real-reward {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    margin: 5px 0 18px;
+    padding: 13px;
+
+    border: 2px dashed #e4b941;
+    border-radius: 15px;
+
+    background: #fff4c9;
+}
+
+.real-reward > span {
+    font-size: 2.5rem;
+}
+
+.real-reward div {
+    display: grid;
+
+    text-align: left;
+}
+
+.real-reward small {
+    color: #7c6015;
+
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.real-reward strong {
+    margin-top: 3px;
+
+    color: #4b3610;
+    font-size: 1.05rem;
 }
 
 .continue-button {
@@ -1054,27 +1094,23 @@ button {
     font-weight: 900;
 
     box-shadow:
-        0 6px 0
-        #17612f;
+        0 6px 0 #17612f;
 }
 
 .continue-button:hover {
-    filter:
-        brightness(1.07);
+    filter: brightness(1.07);
 }
 
 .continue-button:active {
-    transform:
-        translateY(3px);
+    transform: translateY(3px);
 
     box-shadow:
-        0 3px 0
-        #17612f;
+        0 3px 0 #17612f;
 }
 
 .celebrating .journey-card {
     animation:
-        cardGlow 0.65s ease;
+        cardGlow 0.7s ease;
 }
 
 /* Animations */
@@ -1089,13 +1125,13 @@ button {
 
     35% {
         transform:
-            translateY(-28px)
+            translateY(-30px)
             rotate(-7deg);
     }
 
     65% {
         transform:
-            translateY(-12px)
+            translateY(-13px)
             rotate(5deg);
     }
 }
@@ -1128,42 +1164,26 @@ button {
     }
 }
 
-@keyframes cocktailWiggle {
-    0%,
-    100% {
-        transform:
-            rotate(-6deg);
-    }
-
-    50% {
-        transform:
-            rotate(8deg);
-    }
-}
-
 @keyframes spinSun {
     to {
-        transform:
-            rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
 @keyframes cardGlow {
     0% {
-        box-shadow:
-            var(--shadow);
+        box-shadow: var(--shadow);
     }
 
     50% {
         box-shadow:
-            0 0 0 8px
-            rgba(244, 197, 66, 0.27),
+            0 0 0 9px
+            rgba(244, 197, 66, 0.28),
             var(--shadow);
     }
 
     100% {
-        box-shadow:
-            var(--shadow);
+        box-shadow: var(--shadow);
     }
 }
 
@@ -1185,22 +1205,27 @@ button {
     }
 }
 
+@keyframes beachFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 /* Tablet */
 
-@media (max-width: 900px) {
+@media (max-width: 940px) {
     .dashboard {
         grid-template-columns: 1fr;
     }
 
     .side-panel {
         grid-template-columns:
-            repeat(3, 1fr);
-    }
-
-    .progress-card,
-    .next-card,
-    .reward-preview {
-        min-width: 0;
+            repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -1208,114 +1233,111 @@ button {
 
 @media (max-width: 680px) {
     body {
-        padding:
-            12px 8px 45px;
+        padding: 12px 8px 45px;
     }
 
     .hero {
-        padding:
-            28px 8px 18px;
+        padding: 30px 10px 20px;
     }
 
     .hero-sun {
-        font-size:
-            2.1rem;
+        font-size: 2rem;
     }
 
     .journey-card,
     .checklist-panel,
     .progress-card,
-    .next-card,
-    .reward-preview {
-        border-radius:
-            18px;
+    .distance-card,
+    .next-reward-card,
+    .rewards-cabinet {
+        border-radius: 18px;
     }
 
     .journey-card,
     .checklist-panel {
-        padding:
-            17px 13px;
+        padding: 17px 13px;
     }
 
     .side-panel {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
     .task {
         grid-template-columns:
-            32px 40px
+            32px
+            40px
             minmax(0, 1fr)
             31px;
 
-        min-height: 82px;
-        padding:
-            10px 9px;
+        min-height: 86px;
+        padding: 10px 9px;
     }
 
     .task-number {
-        width:
-            29px;
-
-        height:
-            29px;
+        width: 29px;
+        height: 29px;
     }
 
     .task-icon {
-        font-size:
-            1.65rem;
+        font-size: 1.65rem;
     }
 
-    .task-reward {
-        display:
-            none;
+    .task-reward-preview {
+        display: none;
     }
 
     .task-copy strong {
-        font-size:
-            0.92rem;
+        font-size: 0.92rem;
     }
 
     .task-copy small {
-        font-size:
-            0.75rem;
+        font-size: 0.75rem;
     }
 
     .final-destination,
     .final-destination--unlocked {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        padding:
-            27px 20px;
+        padding: 27px 20px;
 
-        text-align:
-            center;
+        text-align: center;
     }
 
     .final-copy {
-        order:
-            -1;
+        order: -1;
     }
 
     .palm {
-        font-size:
-            6rem;
+        font-size: 6rem;
     }
 
-    .final-alex {
-        min-height:
-            210px;
+    .final-character {
+        min-height: 230px;
     }
 
     .journey-location {
-        font-size:
-            0.75rem;
+        font-size: 0.75rem;
     }
 
     .modal-card {
-        padding:
-            25px 20px 20px;
+        padding: 24px 19px 20px;
+    }
+
+    .reward-character {
+        height: 155px;
+    }
+
+    .reward-character img {
+        height: 155px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+    }
+
+    .reset-button {
+        padding: 8px;
+        font-size: 0.7rem;
     }
 }
 
