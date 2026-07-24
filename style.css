@@ -816,19 +816,27 @@ img {
     font-size:3rem;
 }
 
-.reward-character{
-    display:flex;
-    justify-content:center;
+.reward-character {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 
-    margin:10px 0;
+    margin: 10px 0 20px;
+
+    height: 320px;
 }
 
-.reward-character img{
+.reward-character img {
+    width: auto;
+    height: 300px;
 
-    max-width:180px;
-    max-height:180px;
+    max-width: 100%;
+    max-height: 300px;
 
-    object-fit:contain;
+    object-fit: contain;
+
+    animation: alexCelebrate 0.8s ease infinite alternate;
+
 }
 
 .real-reward{
